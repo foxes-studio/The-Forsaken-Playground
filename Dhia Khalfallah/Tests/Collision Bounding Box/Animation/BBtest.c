@@ -3,7 +3,6 @@
 #include  <stdlib.h>
  #include  <SDL/SDL.h>
  #include <SDL/SDL_image.h>
- #include <SDL/SDL_mixer.h>
  #include <stdbool.h>
 
  bool CollisionBB( SDL_Surface *Player , SDL_Surface *C_Object , SDL_Rect position , SDL_Rect position1  )
@@ -24,9 +23,8 @@ int main()
 SDL_Surface *screen , *image , *image1; 
 SDL_Rect position , position1 ; 
 SDL_Event event ; 
-Mix_Music *music ; 
 int done=0 ,x,y ; 
-int ox , oy , ox1 , oy1 , r , r1 ; 
+
 
 
 
