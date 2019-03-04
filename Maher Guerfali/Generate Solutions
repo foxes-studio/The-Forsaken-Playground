@@ -1,1 +1,36 @@
-ici
+char Solution(int type;file f;QUIZ question);
+{
+float k1,k2,rep;
+char vide="";
+char reponse[5];
+FILE *fp;
+switch (type) :
+{
+case 1 : 
+{
+k=(q.c1+q.c2)/2;
+k2=(q.c1-q.c2)/2;
+rep=k1/k2;
+ftao(rep,reponse,4);
+
+return reponse;
+break;
+}
+case 2 :
+{
+
+    char str[20];
+    char* filename = "c:\\Adresse\\reponse.txt";
+ 
+    fp = fopen(reponse.txt, "r");
+    if (fp == NULL){
+        printf("Could not open file %s",filename);
+        return vide;
+    }
+    while ((fgets(str, 20, fp) != NULL) || (strcmp(str,question)==1))
+        printf("%s", str);
+    fclose(fp);
+    return str;
+}
+break;
+}
