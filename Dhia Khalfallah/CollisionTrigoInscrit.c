@@ -5,10 +5,10 @@
 #include <SDL/SDL_image.h>
 #include <stdbool.h>
 
- bool CollisionTrigoInsc ( SDL_Surface *Player , SDL_Surface *C_Object , SDL_Rect Player_position , SDL_Rect Object_position )
+ bool CollisionTrigoInsc ( SDL_Surface *Player , SDL_Surface *C_Object , SDL_Rect position , SDL_Rect position1 )
  
  {
-	 
+	 //Position=Player position , Position1=Position objet , enemi ...
 	 if ( (position1.x+(position1.w/2))-(position.x+(position.w/2)) <= (position.w/2)+(position1.w/2) && (position.x <= position1.x+position1.w ) && (position.y+position.h > position1.y ) )
      {
 		 return true ; 
