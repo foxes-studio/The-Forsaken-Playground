@@ -28,6 +28,8 @@ int done=0 ,x,y,donee=0 ;
          
      } 
      SDL_FillRect ( screen ,  NULL ,  SDL_MapRGB ( screen -> format,  10,  50 ,  102 )); 
+	SDL_WM_SetCaption("Welcome  -------    ||  Maher Guerfali  ||    -------- Home ", NULL);
+  
   
      image  =  IMG_Load( "2.png" ); 
      if  ( image  ==  NULL )  { 
