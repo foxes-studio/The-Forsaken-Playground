@@ -5,7 +5,7 @@
 #include <SDL/SDL_image.h>
 #include <stdbool.h>
 
- bool CollisionTrigoInsc ( SDL_Surface *Player , SDL_Surface *C_Object , SDL_Rect position , SDL_Rect position1  )
+ bool CollisionTrigoInsc ( SDL_Surface *Player , SDL_Surface *C_Object , SDL_Rect Player_position , SDL_Rect Object_position )
  
  {
 	 
