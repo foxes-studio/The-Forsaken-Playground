@@ -1,0 +1,151 @@
+#include"game.h"
+#include<stdio.h>
+#include"SDL/SDL.h"
+#include"SDL/SDL_image.h"
+#include"SDL/SDL_mixer.h"
+#include<time.h>
+#include <SDL/SDL_rotozoom.h>
+
+void initialiser_enemy(enemy* E)
+{
+    E->position_enemy.x = 0;
+    E->position_enemy.y = 0;
+    E->image_enemy = IMG_Load("etoile.jpeg");//SDL_LoadBMP("fish.bmp");
+   // SDL_SetColorKey(E->image_enemy, SDL_SRCCOLORKEY, SDL_MapRGB(E->image_enemy->format, 0, 0, 255));
+     E->positionmin_enemy.x=0;
+  E->positionmax_enemy.x=0;
+
+}
+
+int rotation_enemy(enemy E)
+{
+    SDL_Surface *ecran = NULL, *image = NULL, *rotation = NULL;
+
+    SDL_Rect rect;
+
+    SDL_Event event;
+
+    double angle = 0;
+
+    double zoom = 1;
+
+    int sens = 1;
+
+ 
+
+    int continuer = 1;
+
+    int tempsPrecedent = 0, tempsActuel = 0;
+    int TEMPS=30;
+
+ 
+
+    SDL_Init(SDL_INIT_VIDEO);
+
+ 
+
+    ecran = SDL_SetVideoMode(500, 500, 32, SDL_HWSURFACE);
+
+    SDL_WM_SetCaption("Rotation Enemy", NULL);
+
+ 
+
+    image = IMG_Load("etoile.jpeg");
+
+ 
+
+    while(continuer)
+
+    {
+
+        SDL_PollEvent(&event);
+
+        switch(event.type)
+
+        {
+
+            case SDL_QUIT:
+
+                continuer = 0;
+
+                break;
+
+        }
+
+ 
+
+        tempsActuel = SDL_GetTicks();
+
+        if (tempsActuel - tempsPrecedent > TEMPS)
+
+        {
+
+            angle += 2; //On augmente l'angle pour que l'image tourne sur elle-même.
+
+ 
+
+            tempsPrecedent = tempsActuel;
+
+        }
+
+        else
+
+        {
+
+            SDL_Delay(TEMPS - (tempsActuel - tempsPrecedent));
+
+        }
+
+ 
+
+        SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
+
+ 
+
+        rotation = rotozoomSurface(E.image_enemy, angle, zoom, 0); //On transforme la surface image.
+
+        
+
+        //On repositionne l'image en fonction de sa taille.
+
+        rect.x =  event.button.x - rotation->w / 2;
+
+        rect.y =  event.button.y - rotation->h / 2;
+
+ 
+
+        SDL_BlitSurface(rotation , NULL, ecran, &rect); //On affiche la rotation de la surface image.
+
+        SDL_FreeSurface(rotation); //On efface la surface rotation car on va la redéfinir dans la prochaine boucle. Si on ne le fait pas, cela crée une fuite de mémoire. 
+
+ 
+
+        if(zoom >= 2){sens = 0;}
+
+        else if(zoom <= 0.5){sens = 1;}
+
+ 
+
+        if(sens == 0){zoom -= 0.02;}
+
+        else{zoom += 0.02;}
+
+ 
+
+        SDL_Flip(ecran);
+
+    }
+
+ 
+
+    SDL_FreeSurface(ecran);
+
+    SDL_FreeSurface(image);
+
+    SDL_Quit();
+
+ 
+
+    return EXIT_SUCCESS;   
+
+}
