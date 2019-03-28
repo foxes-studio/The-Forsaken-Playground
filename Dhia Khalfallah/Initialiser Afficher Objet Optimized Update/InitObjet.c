@@ -4,7 +4,7 @@
 #include <SDL/SDL_image.h>
 #include "object.h"
 
-void initialiserObj( Objet *obj , char name[] , int x , int y ) 
+void initialiserObj( Objet *obj , char name[] , int x , int y , int h , int w) 
 {
 
 	       obj->image =  IMG_Load(name); 
@@ -16,7 +16,9 @@ void initialiserObj( Objet *obj , char name[] , int x , int y )
      {
  
      obj->position.x  =  x ; 
-     obj->position.y  =  y ; 
+     obj->position.y  =  y ;
+     obj->position.h  =  h ;
+     obj->position.w  =  w ;
 }
 
 }
