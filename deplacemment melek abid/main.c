@@ -6,30 +6,26 @@
 
 int main()
 {
-SDL_Surface *ecran=NULL;
+SDL_Surface *screen=NULL;
 SDL_Surface *image=NULL;
-int continuer=1;
-SDL_Rect position;
-position.x=0;
-position.y=0;
+SDL_Surface *image1=NULL;
+SDL_Rect positionFond;
+int running=1;
 SDL_Init(SDL_INIT_VIDEO);
-
-    ecran = SDL_SetVideoMode(1920, 1080, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+positionFond.x=0;
+positionFond.y=0;
+positionFond.w=1920 ;
+positionFond.h=1080 ; 
+    screen = SDL_SetVideoMode(1920, 1080, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
     SDL_WM_SetCaption("Chargement Backgroung", NULL);  
 image = IMG_Load("Mario_Run.png");
-
-while(continuer==1)
-{
-SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
-
-deplacement(ecran,image , continuer, position);
-
-SDL_Flip(ecran);
-}
+image1 = IMG_Load("map.png");
 
 
-
+animate(screen ,  image1 , image,  &positionFond  , &running);
+animated(screen ,  image1 , image,  &positionFond  , &running);
 SDL_FreeSurface(image);
+SDL_FreeSurface(image1);
  SDL_Quit();
 
     return EXIT_SUCCESS;
