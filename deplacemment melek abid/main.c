@@ -23,7 +23,6 @@ image1 = IMG_Load("map.png");
 
 
 animate(screen ,  image1 , image,  &positionFond  , &running);
-animated(screen ,  image1 , image,  &positionFond  , &running);
 SDL_FreeSurface(image);
 SDL_FreeSurface(image1);
  SDL_Quit();
