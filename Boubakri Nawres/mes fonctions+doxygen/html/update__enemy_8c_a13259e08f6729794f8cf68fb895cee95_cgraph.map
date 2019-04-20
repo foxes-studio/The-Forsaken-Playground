@@ -1,0 +1,5 @@
+<map id="update_ennemi" name="update_ennemi">
+<area shape="rect" id="node2" href="$animate__enemy_8c.html#afd9d9848c9d6c8faa6a8fd46c79cdc0f" title="animer une entite secondaire. " alt="" coords="176,5,288,32"/>
+<area shape="rect" id="node3" href="$move__enemy_8c.html#a0076f6ab2615806da91d06a2541dc722" title="afficher une entite secondaire. " alt="" coords="181,56,283,83"/>
+<area shape="rect" id="node4" href="$update__enemy__state_8c.html#a553c154d7bb37e20d867366b66799803" title="update enemy state. " alt="" coords="164,107,300,133"/>
+</map>

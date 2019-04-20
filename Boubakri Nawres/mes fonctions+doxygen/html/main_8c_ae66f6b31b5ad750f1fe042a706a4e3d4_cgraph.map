@@ -1,0 +1,7 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$init__entite_8c.html#a9acc5655f404d5728a0deb4ec36665b9" title="initialiser l&#39;entite . " alt="" coords="126,5,238,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a6e282bd2bf1c123837fd801826f1a52f" title="couper le spritesheet . " alt="" coords="147,56,217,83"/>
+<area shape="rect" id="node4" href="$anim__entite__droite_8c.html#ab48cf68616e1e9e1db8c519cdb6c3282" title="animer l&#39;entite . " alt="" coords="104,107,260,133"/>
+<area shape="rect" id="node5" href="$dep__va__x_8c.html#ad9f185c74df9373a6037cba7d6350123" title="movement va et vient sur x . " alt="" coords="134,157,230,184"/>
+<area shape="rect" id="node6" href="$pos__alea_8c.html#a3b66d6d37682e944f1aa89d1727dbf6d" title="donner une positon aleatoire . " alt="" coords="308,157,431,184"/>
+</map>
