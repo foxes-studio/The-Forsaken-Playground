@@ -7,19 +7,22 @@
   int  main () 
   {
 SDL_Rect button1,button2,button3,button4,kbira;
-SDL_Surface *screen,*savemenue,*final,*bot11,*bot12,*bot13,*bot14,*bot4,*bot3,*bot2,*bot1;  
+SDL_Surface *screen,*savemenue,*final,*bot11,*bot12,*bot13,*bot14,*bot4,*bot3,*bot2,*bot1,*go;  
 SDL_Event event ;
 char filename[30]="menu/saves.txt";
 char output[30]="saves_Crypted.txt";
 char output2[30]="saves_Uncrypted.txt";
 int x,ok,start;
+int mousex, mousey;
+SDL_Rect dst;
 int k=34;
 char perc[40];
 char cc[20];
 TTF_Font *font=NULL;
 TTF_Font *font2=NULL;
+SDL_Surface *curs;
 char kiko[20]="okolllo";
-int running=1;
+int running=1,i=0;
 int positionFond,positionJ,y,score,vie,numo;
 SDL_Color foregroundColor = { 238, 157, 40 };
 SDL_Color backgroundColor = { 91, 37, 12 };
@@ -27,6 +30,7 @@ SDL_Surface *textSurface;
 SDL_Rect textLocation1,textLocation2,textLocation3,textLocation4,textLocationvie1,textLocationvie2,textLocationvie3,textLocationvie4,textLocationscore1,textLocationscore2,textLocationscore3,textLocationscore4;
 textLocation1.x=184;
 textLocation1.y=250;
+curs=IMG_Load("cursor.png");
 textLocation2.x=740;
 textLocation2.y=290;
 textLocation3.x=194;
@@ -83,7 +87,8 @@ decryption(output,output2);
 
 SDL_BlitSurface ( final,  NULL ,  screen , NULL );
 SDL_Flip ( screen ); 
-
+dst.w = curs->w;
+    dst.h = curs->h;
 
 
 while(running)
@@ -101,6 +106,15 @@ break;
 case SDL_MOUSEMOTION:
 x = event.motion.x;
 y = event.motion.y;
+		mousex = event.motion.x;
+
+                mousey = event.motion.y;
+SDL_ShowCursor(0);
+
+  dst.x = mousex;
+        dst.y = mousey;
+        SDL_BlitSurface(curs, NULL, screen, &dst);
+        SDL_Flip(screen);
 if ((x>button1.x) && ((button1.x+button1.w)>x) && (y>button1.y) && (y<(button1.y+button1.h)))
 {
 
