@@ -6,12 +6,12 @@
 int main()
 {
 SDL_Surface *screen=NULL;
-SDL_Surface *mario=NULL;
+SDL_Surface *joueur=NULL;
 SDL_Surface *image1=NULL;
 int done=0;
-SDL_Surface *image3=NULL;
-SDL_Event event;
 SDL_Surface *image2=NULL;
+SDL_Event event;
+SDL_Surface *image3=NULL;
 SDL_Rect rect2;
 SDL_Rect rect,positionFond;
 rect.x=190;
@@ -60,7 +60,7 @@ rect.x-=10 ;
  rect2.x-=1 ; 
 
 SDL_BlitSurface(image1,NULL,screen,NULL); 
-SDL_BlitSurface(mario,NULL,screen,&rect); 
+SDL_BlitSurface(joueur,NULL,screen,&rect); 
 SDL_BlitSurface(image2,NULL, screen, NULL);
 SDL_BlitSurface(image3,NULL,screen,&rect2);
 SDL_Flip(screen) ; 
